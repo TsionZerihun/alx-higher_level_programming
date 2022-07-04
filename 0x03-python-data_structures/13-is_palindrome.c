@@ -1,40 +1,34 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
+
 /**
- * is_palindrome - check if linked list is a palindrome
- * @head: pointer to pointer to head of the list
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * is_palindrome - checks if a linked list is a palindrome
+ *
+ * @head: the head address of the linked list
+ *
+ * Return: 1 if it's a palindrome, 0 else
  */
+
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head;
-	int size = sizeof(int);
-	int i = 1;
-	int left = 0;
-	int right = i - 1;
-	int *arr = malloc(100000 * sizeof(int));
+	listint_t *cur = *head;
+	int tab[2048], i = 0, j = 0;
 
-	arr[0] = (*head)->n;
-
-	if (*head == NULL)
-		return (1);
-
-	temp = temp->next;
-
-	while (temp != NULL)
+	if (*head)
 	{
-		size += sizeof(int);
-		arr = realloc(arr, size);
-		arr[i] = temp->n;
-		i++;
-		temp = temp->next;
-	}
-	for (; left < right; left++, right--)
-	{
-		if (arr[left] != arr[right])
-			return (0);
+		while (cur)
+		{
+			tab[i] = cur->n;
+			cur = cur->next;
+			i++;
+		}
+
+		while (j < i / 2)
+		{
+			if (tab[j] == tab[i - j - 1])
+				j++;
+			else
+				return (0);
+		}
 	}
 	return (1);
 }
