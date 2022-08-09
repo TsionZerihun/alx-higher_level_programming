@@ -2,8 +2,6 @@
 """Module: rectangle
 This class inherits from Base
 """
-
-import json
 from models.base import Base
 
 class Rectangle(Base):
