@@ -1,27 +1,21 @@
 #!/usr/bin/python3
-"""
-No module imported
-"""
+"""defines a class called square"""
 
 
 class Square:
+    """Initialize a square
+    Args:
+        __size (int): size of the square
     """
-    Defines a square by private attribute size,
-    and instantiation with optional size:
     def __init__(self, size=0):
-    """
-    def __init__(self, size=0):
+        """Initialize a square
+        Args:
+            size (int): size of the square
+        Returns: None
         """
-        private instance attribute
-        parameters
-        ------------------
-        size : integer else TypeError
-        if size less than 0, raise value error
-        """
-        self.__size = size
-        try:
-            assert type(size) == int
-        except:
+        if isinstance(size, int):
+            if size < 0:
+                raise ValueError("size must be >= 0")
+            self.__size = size
+        else:
             raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
