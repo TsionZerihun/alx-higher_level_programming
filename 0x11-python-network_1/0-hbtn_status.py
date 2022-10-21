@@ -2,10 +2,9 @@
 """
 Python script that fetches https://alx-intranet.hbtn.io/status
 """
-from urllib import request
 
 if __name__ ==  "__main__":
-
+    from urllib import request
     url = "https://alx-intranet.hbtn.io/status"
     with request.urlopen(url) as r:
         data = r.read()
