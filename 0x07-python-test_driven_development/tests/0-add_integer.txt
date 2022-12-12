@@ -7,6 +7,15 @@ Contains only one function ``add_integer``
 Importing:
 	>>> add_integer = __import__("0-add_integer").add_integer
 
+Module docstring:
+	>>> m = __import__("0-add_integer").__doc__
+	>>> len(m) > 1
+	True
+
+Function docstring:
+	>>> f = __import__("0-add_integer").add_integer.__doc__
+	>>> len(f) > 1
+	True
 
 Addition with numbers:
 	>>> add_integer(5, 7)
