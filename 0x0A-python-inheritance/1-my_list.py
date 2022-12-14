@@ -1,10 +1,19 @@
 #!/usr/bin/python3
-"""Inherits from list"""
+"""
+File: 1-my_list.py
+Desc: This file contains one class; MyList
+Author: Tsion
+"""
 
 
 class MyList(list):
-    """inherits from list"""
+    """
+    Represents a class MyList
+    """
 
     def print_sorted(self):
-        """print sorted list"""
+        """
+        Prints the list, but sorted
+        (ascending sort)
+        """
         print(sorted(self))
