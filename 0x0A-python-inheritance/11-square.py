@@ -1,54 +1,36 @@
 #!/usr/bin/python3
-"""inherits from BaseGeometry"""
+"""
+File: 11-square.py
+Desc: This module contains definition for the class Square
+Author: Tsion
+Date Created:Aug 2022
+"""
+
+R = __import__('9-rectangle').Rectangle
 
 
-class BaseGeometry:
-    """public instance method"""
+class Square(R):
+    """
+    Definition of class square that inherits from class Rectangle
+    """
 
-    def area(self):
-        """calculate area"""
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """validates value"""
-        x = isinstance(value, int)
-        if not x:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
-
-class Rectangle(BaseGeometry):
-    """class Rectangle inherits from BaseGeometry"""
-
-    def __init__(self, width, height):
-        """initialization of privates"""
-        self.integer_validator('width', width)
-        self.__width = width
-        self.integer_validator('height', height)
-        self.__height = height
-
-    def area(self):
-        """implementing area"""
-        return self.__width * self.__height
-
-    def __str__(self):
-        """return a str representation of square"""
-        return '[Rectangle] {}/{}'.format(self.__width, self.__height)
-
-
-class Square(Rectangle):
-    """Class Square inherits from Rectangle"""
     def __init__(self, size):
-        """initializer"""
+        """
+        Initializes instance of the class Square
+        """
+        super().integer_validator("size", size)
         super().__init__(size, size)
-        self.integer_validator('size', size)
         self.__size = size
 
     def area(self):
-        """area validation for square"""
-        return self.__size * self.__size
+        """
+        Returns the area of the square
+        """
+        return self.__size ** 2
 
     def __str__(self):
-        """return a str representaion of square"""
-        return '[Square] {}/{}'.format(self.__size, self.__size)
+        """
+        Returns string representation of an instance of class square
+        """
+        return "[{}] {}/{}".format(type(self).__name__, self.__size,
+                                   self.__size)
