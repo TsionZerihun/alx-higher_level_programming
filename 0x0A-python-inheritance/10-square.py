@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""inherits from BaseGeometry"""
+"""
+File: 10-square.py
+Author: Tsion
+Date Created:  2022
+"""
 
 
 class BaseGeometry:
@@ -19,7 +23,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """class Rectangle inherits from BaseGeometry"""
+    """class Rectangle inhered BaseGeometry"""
 
     def __init__(self, width, height):
         """initialization of privates"""
