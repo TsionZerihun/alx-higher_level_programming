@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-"""inherits from BaseGeometry"""
+"""
+File:8-rectangle.py
+Author:Tsion
+Date:created on 2022
+""" 
+
 
 
 class BaseGeometry:
-    """public instance method"""
+    """
+    A class BaseGeometry
+    """
 
     def area(self):
         """raises an exception"""
@@ -18,7 +25,9 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """class Rectangle inherits from BaseGeometry"""
+    """
+    class Rectangle inherits from BaseGeometry
+    """
 
     def __init__(self, width, height):
         """initialization of privates"""
