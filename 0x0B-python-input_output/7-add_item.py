@@ -1,16 +1,24 @@
 #!/usr/bin/python3
-import sys
-import json
+"""Load, add, save"""
 
-save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-if __name__ == "__main__":
-    try:
-        json_list = load_from_json_file('add_item.json')
-    except FileNotFoundError:
-        json_list = []
+from sys import argv
+from os.path import exists
 
-    for i in range(1, len(sys.argv)):
-        json_list.append(sys.argv[i])
-    save_to_json_file(json_list, "add_item.json")
+save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
+
+namefile = "add_item.json"
+argc = len(argv)
+
+new_list = []
+
+if exists(namefile):
+    new_list = load_from_json_file(namefile)
+
+if (argc == 1):
+    save_to_json_file([], namefile)
+else:
+    for i in range(1, argc):
+        new_list.append(argv[i])
+    save_to_json_file(new_list, namefile)
